@@ -7,12 +7,12 @@ OBJS    	    = main.o sockets.o signals.o privileges.o timeout.o utils.o resourc
 CC      	    = gcc
 LD      	    = gcc
 
-CFLAGS += -O3 -g -D_FORTIFY_SOURCE=2 -fstack-protector -fPIE
+CFLAGS += -m32 -O0 -g -D_FORTIFY_SOURCE=2 -fstack-protector -fPIE
 CFLAGS += -Werror -Wno-variadic-macros 
 CFLAGS += -DRANDOM_UID -DHAVE_SETRESGID
 # CFLAGS += -fsanitize=undefined-trap -fsanitize-undefined-trap-on-error -Wno-disabled-macro-expansion
 
-LDFLAGS += -Wl,-z,relro -Wl,-z,now
+LDFLAGS += -m32 -Wl,-z,relro -Wl,-z,now
 
 all: $(BINARY) man
 
